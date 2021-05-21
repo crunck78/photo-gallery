@@ -1,0 +1,90 @@
+/* Source of inspiration https://css-tricks.com/seamless-responsive-photo-grid/ */
+
+body{
+    margin: 0;
+    background-color: antiquewhite;
+}
+
+#photos {
+    /* Prevent vertical gaps */
+    line-height: 0;
+     
+    -webkit-column-count: 5;
+    -webkit-column-gap:   0px;
+    -moz-column-count:    5;
+    -moz-column-gap:      0px;
+    column-count:         5;
+    column-gap:           0px;  
+  }
+  
+  #photos img {
+    /* Just in case there are inline attributes */
+    width: 100% !important;
+    height: auto !important;
+    transition: all 225ms ease-in-out;
+  }
+
+  #full-view{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.726);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 60px;
+      padding-right: 60px;
+  }
+
+  #full-view img{
+      max-width: 70vw;
+      max-height: 90vh;
+  }
+
+  #full-view img:hover{
+    max-width: 70vw;
+    max-height: 90vh;
+    transform: scale(1.2);
+}
+
+  .d-none{
+      display: none !important;
+  }
+
+  @media (min-width: 400px) {
+    #photos img:hover{
+        transform: scale(1.1);
+        transition: all 225ms ease-in-out;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    #photos {
+    -moz-column-count:    4;
+    -webkit-column-count: 4;
+    column-count:         4;
+    }
+  }
+  @media (max-width: 1000px) {
+    #photos {
+    -moz-column-count:    3;
+    -webkit-column-count: 3;
+    column-count:         3;
+    }
+  }
+  @media (max-width: 800px) {
+    #photos {
+    -moz-column-count:    2;
+    -webkit-column-count: 2;
+    column-count:         2;
+    }
+  }
+  @media (max-width: 400px) {
+    #photos {
+    -moz-column-count:    1;
+    -webkit-column-count: 1;
+    column-count:         1;
+    }
+  }
