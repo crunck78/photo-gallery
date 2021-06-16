@@ -11,21 +11,28 @@ const photoPaths = [
     'img/10.jpg',
     'img/11.jpg',
     'img/12.jpg',
-    'img/13.jpg',
+    'img/13.jpg'
 ];
+
+function initArray(){
+    for (let index = 0; index < 13; index++) {
+       photoPaths.push(`img/${index+1}.jpg`);
+    }
+}
 
 let currentFullView = '';
 
 function showGallery() {
     const photosCont = document.getElementById("photos");
     photosCont.innerHTML = "";
+
     photoPaths.forEach( (photoPath, index) => {
         photosCont.insertAdjacentHTML("beforeend", generatePhotoView(photoPath));
     });
 }
 
 function generatePhotoView(path) {
-    return `<img onclick="showFullView('${path}')" src="${path}">`;
+    return `<img class="myImg" onclick="showFullView('${path}')" src="${path}">`;
 }
 
 function showFullView(path){

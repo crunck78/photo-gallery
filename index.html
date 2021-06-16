@@ -9,10 +9,12 @@
     <script src="script.js"></script>
 </head>
 <body onload="showGallery()">
-    <section id="photos"></section>
+    <section id="photos">
+        
+    </section>
     <section onclick="closeFullView()" id="full-view" class="d-none">
         <button onclick="event.stopPropagation(); prev()">Previous</button>
-        <img id="full-view-img">
+        <div class="full-img-container"><img id="full-view-img"></div>
         <button onclick="event.stopPropagation(); next()">Next</button>
     </section>
 </body>
