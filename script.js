@@ -35,6 +35,7 @@ function generatePhotoView(path) {
     return `<img class="myImg" onclick="showFullView('${path}')" src="${path}">`;
 }
 
+
 function showFullView(path){
     currentFullView = path;
     document.getElementById("full-view").classList.remove("d-none");
@@ -48,9 +49,13 @@ function prev(){
 }
 
 function next(){
-    let currentIndex = photoPaths.indexOf(currentFullView);
-    if(currentIndex < photoPaths.length - 1)
-        showFullView(photoPaths[++currentIndex]);
+    try{
+        let currentIndex = photoPaths.indexOf(currentFullView);
+        if(currentIndex < photoPaths.length - 1)
+            showFullView(photoPaths[++currentIndex]);
+    }catch(error){
+      console.error(error);
+    }
 }
 
 function closeFullView(){
